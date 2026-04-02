@@ -1,23 +1,133 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My AI Website</title>
+<title>AI Canva PRO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color:white;
+  text-align:center;
+}
+
+.tools {
+  background: rgba(255,255,255,0.1);
+  padding:15px;
+  margin:10px;
+  border-radius:15px;
+}
+
+input, button {
+  margin:5px;
+  padding:10px;
+  border-radius:10px;
+  border:none;
+}
+
+button {
+  background:white;
+  cursor:pointer;
+}
+
+canvas {
+  border:2px solid white;
+  border-radius:10px;
+  margin-top:10px;
+}
+</style>
 </head>
-<body style="background:black; color:white; text-align:center;">
 
-    <h1>🔥 Welcome to My AI Website 🔥</h1>
-    
-    <p>Yahan par aapko best cartoon kahani videos milengi 😍</p>
+<body>
 
-    <h2>🎬 Latest Video</h2>
+<h1>🤖 AI Canva PRO</h1>
 
-    <iframe width="300" height="500" 
-    src="https://www.youtube.com/embed/ItRZtW7SqVI" 
-    frameborder="0" allowfullscreen>
-    </iframe>
+<div class="tools">
 
-    <p>👉 Aur videos ke liye subscribe karo!</p>
+  <!-- AI IMAGE -->
+  <input type="text" id="aiPrompt" placeholder="AI Image Prompt">
+  <button onclick="generateAI()">Generate AI Image</button>
+
+  <br>
+
+  <!-- AI TEXT -->
+  <input type="text" id="ideaInput" placeholder="Video idea topic">
+  <button onclick="generateIdea()">Generate Idea</button>
+  <p id="ideaOutput"></p>
+
+  <hr>
+
+  <!-- NORMAL TOOLS -->
+  <input type="text" id="textInput" placeholder="Write text">
+  <input type="color" id="colorPicker">
+  <button onclick="addText()">Add Text</button>
+
+  <br>
+
+  <button onclick="addEmoji()">😎 Sticker</button>
+  <button onclick="clearCanvas()">Clear</button>
+  <button onclick="downloadImage()">Download</button>
+
+</div>
+
+<canvas id="canvas" width="300" height="400"></canvas>
+
+<script>
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+
+// 🤖 Fake AI Image (Free)
+function generateAI(){
+  let prompt = document.getElementById("aiPrompt").value;
+  let img = new Image();
+  img.src = "https://source.unsplash.com/300x400/?" + prompt;
+  img.onload = function(){
+    ctx.drawImage(img,0,0,canvas.width,canvas.height);
+  }
+}
+
+// 🤖 AI Idea Generator
+function generateIdea(){
+  let topic = document.getElementById("ideaInput").value;
+  let output = document.getElementById("ideaOutput");
+
+  output.innerText =
+  "🔥 Hook: A shocking story about " + topic +
+  "\n🎬 Middle: Emotional twist + suspense" +
+  "\n😱 Ending: Unexpected ending that goes viral!";
+}
+
+// 🎨 Text add
+function addText(){
+  let text = document.getElementById("textInput").value;
+  let color = document.getElementById("colorPicker").value;
+
+  ctx.fillStyle = color;
+  ctx.font = "20px Arial";
+  ctx.fillText(text,50,50);
+}
+
+// 😎 Emoji
+function addEmoji(){
+  ctx.font = "40px Arial";
+  ctx.fillText("😎",100,100);
+}
+
+// 🧹 Clear
+function clearCanvas(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+
+// 📥 Download
+function downloadImage(){
+  let link = document.createElement('a');
+  link.download="design.png";
+  link.href=canvas.toDataURL();
+  link.click();
+}
+</script>
 
 </body>
 </html>
