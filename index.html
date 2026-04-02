@@ -2,135 +2,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Prince AI</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    text-align: center;
-}
-
-/* Glass Effect Box */
-.box {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    margin: 20px;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-}
-
-/* Title */
-h1 {
-    padding: 30px;
-    font-size: 35px;
-}
-
-/* Inputs */
-input {
-    padding: 12px;
-    width: 70%;
-    border-radius: 10px;
-    border: none;
-    margin: 10px;
-}
-
-/* Buttons */
-button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 10px;
-    background: white;
-    color: black;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* Hover Effect */
-button:hover {
-    background: black;
-    color: white;
-    transform: scale(1.1);
-}
-
-/* Animation */
-.box:hover {
-    transform: scale(1.02);
-    transition: 0.3s;
-}
-</style>
+    <title>My AI Website</title>
 </head>
+<body style="background:black; color:white; text-align:center;">
 
-<body>
+    <h1>🔥 Welcome to My AI Website 🔥</h1>
+    
+    <p>Yahan par aapko best cartoon kahani videos milengi 😍</p>
 
-<h1>🤖 Prince AI Website</h1>
+    <h2>🎬 Latest Video</h2>
 
-<div class="box">
-    <h2>💬 AI Chat</h2>
-    <input id="chatInput" placeholder="Ask anything...">
-    <br>
-    <button onclick="chat()">Send</button>
-    <p id="chatOutput"></p>
-</div>
+    <iframe width="300" height="200" 
+    src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+    frameborder="0" allowfullscreen>
+    </iframe>
 
-<div class="box">
-    <h2>🎤 AI Voice</h2>
-    <input id="voiceText" placeholder="Type to speak...">
-    <br>
-    <button onclick="speak()">Speak</button>
-</div>
-
-<div class="box">
-    <h2>🖼️ AI Image Generator</h2>
-    <input id="imgPrompt" placeholder="Enter prompt...">
-    <br>
-    <button onclick="generateImage()">Generate</button>
-    <br><br>
-    <img id="imgResult" width="250">
-</div>
-
-<div class="box">
-    <h2>🎬 Viral Video Idea</h2>
-    <input id="videoPrompt" placeholder="Enter topic...">
-    <br>
-    <button onclick="generateVideo()">Generate</button>
-    <p id="videoOutput"></p>
-</div>
-
-<script>
-
-// Fake Chat
-function chat(){
-    let input = document.getElementById("chatInput").value;
-    let output = document.getElementById("chatOutput");
-    output.innerText = "🤖 AI: " + input + " is interesting!";
-}
-
-// Voice AI
-function speak(){
-    let text = document.getElementById("voiceText").value;
-    let speech = new SpeechSynthesisUtterance(text);
-    speechSynthesis.speak(speech);
-}
-
-// Image
-function generateImage(){
-    let img = document.getElementById("imgResult");
-    img.src = "https://source.unsplash.com/400x300/?ai";
-}
-
-// Video Idea
-function generateVideo(){
-    let output = document.getElementById("videoOutput");
-    output.innerText = "🔥 Viral Idea: Emotional + Cinematic Story with twist ending!";
-}
-
-</script>
+    <p>👉 Aur videos ke liye subscribe karo!</p>
 
 </body>
 </html>
