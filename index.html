@@ -1,55 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>My Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prince AI Website</title>
 
 <style>
 body {
-  margin: 0;
-  font-family: Arial;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  text-align: center;
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    color: white;
+    text-align: center;
 }
 
-h1 {
-  margin-top: 50px;
+h1 { margin-top: 30px; }
+
+.box {
+    background: rgba(255,255,255,0.1);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+input {
+    padding: 10px;
+    width: 70%;
+    border-radius: 10px;
+    border: none;
 }
 
 button {
-  padding: 10px 20px;
-  border: none;
-  background: white;
-  color: black;
-  cursor: pointer;
-  border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-.card {
-  background: rgba(255,255,255,0.2);
-  margin: 10px;
-  padding: 20px;
-  border-radius: 10px;
+img {
+    width: 80%;
+    margin-top: 10px;
 }
 </style>
-
 </head>
 
 <body>
 
-<h1>Welcome to My Website 🚀</h1>
-<p>This is my AI website</p>
+<h1>🤖 Prince AI Website</h1>
 
-<button onclick="showMsg()">Click Me</button>
+<!-- CHAT -->
+<div class="box">
+<h2>💬 AI Chat</h2>
+<input id="chatInput" placeholder="Ask anything...">
+<br>
+<button onclick="chatAI()">Send</button>
+<p id="chatOutput"></p>
+</div>
 
-<div class="card">Feature 1</div>
-<div class="card">Feature 2</div>
-<div class="card">Feature 3</div>
+<!-- VOICE -->
+<div class="box">
+<h2>🎤 AI Voice</h2>
+<input id="voiceText" placeholder="Type to speak...">
+<br>
+<button onclick="speak()">Speak</button>
+</div>
+
+<!-- IMAGE -->
+<div class="box">
+<h2>🖼️ AI Image Generator</h2>
+<input id="imgPrompt" placeholder="Enter image prompt...">
+<br>
+<button onclick="generateImage()">Generate Image</button>
+<br>
+<img id="imgResult">
+</div>
+
+<!-- VIDEO PROMPT -->
+<div class="box">
+<h2>🎬 Viral Video Idea</h2>
+<input id="videoPrompt" placeholder="Enter topic...">
+<br>
+<button onclick="generateVideoIdea()">Generate</button>
+<p id="videoOutput"></p>
+</div>
 
 <script>
-function showMsg() {
-  alert("Button Clicked 😎");
+
+// 🤖 CHAT AI (Simple Demo)
+function chatAI(){
+    let input = document.getElementById("chatInput").value;
+    let output = document.getElementById("chatOutput");
+
+    let reply = "I am learning 🤖";
+
+    if(input.includes("hello")) reply = "Hello 👋";
+    if(input.includes("name")) reply = "I am Prince AI";
+    if(input.includes("money")) reply = "Earn with AI videos 💸";
+
+    output.innerText = reply;
 }
+
+// 🎤 VOICE AI
+function speak(){
+    let text = document.getElementById("voiceText").value;
+    let speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-US";
+    speech.pitch = 1;
+    speech.rate = 1;
+    speechSynthesis.speak(speech);
+}
+
+// 🖼️ IMAGE (Demo)
+function generateImage(){
+    let prompt = document.getElementById("imgPrompt").value;
+    let img = document.getElementById("imgResult");
+
+    img.src = "https://source.unsplash.com/600x400/?" + prompt;
+}
+
+// 🎬 VIDEO IDEA
+function generateVideoIdea(){
+    let topic = document.getElementById("videoPrompt").value;
+    let output = document.getElementById("videoOutput");
+
+    output.innerText = "🔥 Viral Idea: A cinematic story about " + topic + " with emotional twist & AI visuals!";
+}
+
 </script>
 
 </body>
